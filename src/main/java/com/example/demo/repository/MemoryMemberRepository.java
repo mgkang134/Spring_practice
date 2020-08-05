@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import com.example.demo.domain.Member;
 
-public class MemoryMenberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository{
 
 	
 	private static Map<Long, Member> store = new HashMap<>();
@@ -36,6 +36,10 @@ public class MemoryMenberRepository implements MemberRepository{
 	@Override
 	public List<Member> findAll() {
 		return new ArrayList<>(store.values());
+	}
+	
+	public void clearStore() {
+		store.clear();
 	}
 
 	
