@@ -10,7 +10,6 @@ import com.example.demo.domain.Member;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.MemoryMemberRepository;
 
-@Service
 public class MemberService {
 
 	private final MemberRepository memberRepository;
