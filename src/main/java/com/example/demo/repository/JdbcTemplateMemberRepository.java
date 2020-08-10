@@ -22,8 +22,8 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 	public JdbcTemplateMemberRepository(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
 	@Override
+	
 	public Member save(Member member) {
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");
@@ -38,13 +38,13 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
 	@Override
 	public Optional<Member> findById(Long idLong) {
-		List<Member> result = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), idLong);
+		List<Member> result = jdbcTemplate.query("SELECT * FROM MEMBER WHERE ID = ?", memberRowMapper(), idLong);
 		return result.stream().findAny();
 	}
 
 	@Override
 	public Optional<Member> findByName(String name) {
-		List<Member> result = jdbcTemplate.query("select * from member where name = ?", memberRowMapper(), name);
+		List<Member> result = jdbcTemplate.query("SELECT * FROM MEMBER WHERE NAME = ?", memberRowMapper(), name);
 		return result.stream().findAny();
 	}
 
