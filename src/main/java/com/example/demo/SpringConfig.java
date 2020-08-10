@@ -3,6 +3,8 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.example.demo.aop.TimeTraceAop;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.service.MemberService;
 
@@ -19,6 +21,11 @@ public class SpringConfig {
 	@Bean
 	public MemberService memberService() {
 		return new MemberService(memberRepository);
+	}
+	
+	@Bean
+	public TimeTraceAop timeTraceAop() {
+		return new TimeTraceAop();
 	}
 	
 //	@Bean
